@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Loginpage() {
   const [form, setForm] = useState({
@@ -46,25 +47,28 @@ function Loginpage() {
 
   return (
     <div className="container my-5">
-
       <section className="login-container text-center">
-
         <h2>Welcome Back!</h2>
 
         <p>Login to continue shopping for your favourite toys.</p>
 
         <img
           src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=300"
+          alt="Toy"
           width="220"
           height="220"
-          alt="Toy"
           className="img-fluid mb-4"
         />
 
-        <form onSubmit={handleSubmit} className="w-50 mx-auto text-start">
-
+        <form
+          onSubmit={handleSubmit}
+          className="w-50 mx-auto text-start"
+        >
           <div className="mb-3">
-            <label>Email Address</label>
+            <label className="form-label">
+              Email Address
+            </label>
+
             <input
               type="email"
               name="email"
@@ -76,7 +80,10 @@ function Loginpage() {
           </div>
 
           <div className="mb-3">
-            <label>Password</label>
+            <label className="form-label">
+              Password
+            </label>
+
             <input
               type="password"
               name="password"
@@ -94,29 +101,41 @@ function Loginpage() {
               className="form-check-input"
               checked={form.remember}
               onChange={handleChange}
+              id="remember"
             />
 
-            <label className="form-check-label">
+            <label
+              className="form-check-label"
+              htmlFor="remember"
+            >
               Remember Me
             </label>
           </div>
 
-          <button className="btn btn-primary w-100">
+          <button
+            type="submit"
+            className="btn btn-primary w-100"
+          >
             Login
           </button>
-
         </form>
 
         <p className="mt-3">
-          <a href="#">Forgot Password?</a>
+          <button
+            type="button"
+            className="btn btn-link text-decoration-none p-0"
+          >
+            Forgot Password?
+          </button>
         </p>
 
         <p>
-          Don't have an account? <a href="/register">Register Here</a>
+          Don't have an account?{" "}
+          <Link to="/register">
+            Register Here
+          </Link>
         </p>
-
       </section>
-
     </div>
   );
 }
