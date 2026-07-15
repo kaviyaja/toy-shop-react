@@ -1,5 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import {
+  Container,
+  Paper,
+  Typography,
+  TextField,
+  Button,
+  Box,
+  FormControlLabel,
+  Checkbox,
+} from "@mui/material";
 
 function Loginpage() {
   const [form, setForm] = useState({
@@ -28,7 +38,7 @@ function Loginpage() {
     }
 
     if (!emailPattern.test(form.email)) {
-      alert("Please enter a valid email address.");
+      alert("Please enter a valid Email Address.");
       return;
     }
 
@@ -42,101 +52,103 @@ function Loginpage() {
       return;
     }
 
-    alert("Login Successful!");
+    // Read data from localStorage
+    const user = JSON.parse(localStorage.getItem("registerData"));
+
+    if (!user) {
+      alert("No registered user found.");
+      return;
+    }
+
+    if (
+      form.email === user.email &&
+      form.password === user.password
+    ) {
+      alert("Login Successful!");
+    } else {
+      alert("Invalid Email or Password");
+    }
+
+    console.log(form);
   };
 
   return (
-    <div className="container my-5">
-      <section className="login-container text-center">
-        <h2>Welcome Back!</h2>
+    <Container maxWidth="sm">
+      <Paper
+        elevation={5}
+        sx={{
+          mt: 5,
+          p: 4,
+          borderRadius: 3,
+        }}
+      >
+        <Typography variant="h4" align="center" gutterBottom>
+          Login
+        </Typography>
 
-        <p>Login to continue shopping for your favourite toys.</p>
+        <Typography align="center" sx={{ mb: 3 }}>
+          Welcome Back!
+        </Typography>
 
-        <img
-          src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=300"
-          alt="Toy"
-          width="220"
-          height="220"
-          className="img-fluid mb-4"
-        />
-
-        <form
+        <Box
+          component="form"
           onSubmit={handleSubmit}
-          className="w-50 mx-auto text-start"
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 2,
+          }}
         >
-          <div className="mb-3">
-            <label className="form-label">
-              Email Address
-            </label>
+          <TextField
+            label="Email"
+            name="email"
+            type="email"
+            value={form.email}
+            onChange={handleChange}
+            fullWidth
+          />
 
-            <input
-              type="email"
-              name="email"
-              className="form-control"
-              placeholder="Enter your email"
-              value={form.email}
-              onChange={handleChange}
-            />
-          </div>
+          <TextField
+            label="Password"
+            name="password"
+            type="password"
+            value={form.password}
+            onChange={handleChange}
+            fullWidth
+          />
 
-          <div className="mb-3">
-            <label className="form-label">
-              Password
-            </label>
+          <FormControlLabel
+            control={
+              <Checkbox
+                name="remember"
+                checked={form.remember}
+                onChange={handleChange}
+              />
+            }
+            label="Remember Me"
+          />
 
-            <input
-              type="password"
-              name="password"
-              className="form-control"
-              placeholder="Enter your password"
-              value={form.password}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="form-check mb-3">
-            <input
-              type="checkbox"
-              name="remember"
-              className="form-check-input"
-              checked={form.remember}
-              onChange={handleChange}
-              id="remember"
-            />
-
-            <label
-              className="form-check-label"
-              htmlFor="remember"
-            >
-              Remember Me
-            </label>
-          </div>
-
-          <button
+          <Button
+            variant="contained"
             type="submit"
-            className="btn btn-primary w-100"
+            size="large"
           >
             Login
-          </button>
-        </form>
+          </Button>
 
-        <p className="mt-3">
-          <button
-            type="button"
-            className="btn btn-link text-decoration-none p-0"
-          >
+          <Button variant="text">
             Forgot Password?
-          </button>
-        </p>
+          </Button>
 
-        <p>
-          Don't have an account?{" "}
-          <Link to="/register">
-            Register Here
-          </Link>
-        </p>
-      </section>
-    </div>
+          <Typography align="center">
+            Don't have an account?{" "}
+            <Link to="/register">
+              Register Here
+            </Link>
+          </Typography>
+        </Box>
+      </Paper>
+    </Container>
   );
 }
 

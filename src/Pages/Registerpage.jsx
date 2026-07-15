@@ -1,5 +1,18 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import {
+  Container,
+  Paper,
+  Typography,
+  TextField,
+  Button,
+  Box,
+  RadioGroup,
+  Radio,
+  FormControlLabel,
+  FormLabel,
+  Checkbox,
+} from "@mui/material";
 
 function Registerpage() {
   const [form, setForm] = useState({
@@ -86,173 +99,200 @@ function Registerpage() {
       return;
     }
 
+    // Store in localStorage
+    localStorage.setItem(
+      "registerData",
+      JSON.stringify(form)
+    );
+
     alert("Registration Successful!");
+
+    console.log(form);
+
+    // Clear Form
+    setForm({
+      fname: "",
+      lname: "",
+      email: "",
+      phone: "",
+      username: "",
+      password: "",
+      confirmPassword: "",
+      dob: "",
+      gender: "",
+      address: "",
+      terms: false,
+    });
   };
 
   return (
-    <div className="container my-5">
-      <section className="register-container text-center">
-        <h2>Create Your Account</h2>
+    <Container maxWidth="sm">
+      <Paper
+        elevation={5}
+        sx={{
+          mt: 5,
+          p: 4,
+          borderRadius: 3,
+        }}
+      >
+        <Typography variant="h4" align="center" gutterBottom>
+          Register
+        </Typography>
 
-        <p>Join our toy family and start shopping today!</p>
+        <Typography align="center" sx={{ mb: 3 }}>
+          Create Your Account
+        </Typography>
 
-        <img
-          src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=300"
-          alt="Toy"
-          width="220"
-          height="220"
-          className="img-fluid mb-4"
-        />
-
-        <form
+        <Box
+          component="form"
           onSubmit={handleSubmit}
-          className="w-50 mx-auto text-start"
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 2,
+          }}
         >
-          <input
-            className="form-control mb-3"
+          <TextField
+            label="First Name"
             name="fname"
-            placeholder="First Name"
             value={form.fname}
             onChange={handleChange}
+            fullWidth
           />
 
-          <input
-            className="form-control mb-3"
+          <TextField
+            label="Last Name"
             name="lname"
-            placeholder="Last Name"
             value={form.lname}
             onChange={handleChange}
+            fullWidth
           />
 
-          <input
-            className="form-control mb-3"
-            type="email"
+          <TextField
+            label="Email"
             name="email"
-            placeholder="Email"
+            type="email"
             value={form.email}
             onChange={handleChange}
+            fullWidth
           />
 
-          <input
-            className="form-control mb-3"
+          <TextField
+            label="Phone Number"
             name="phone"
-            placeholder="Phone Number"
             value={form.phone}
             onChange={handleChange}
+            fullWidth
           />
 
-          <input
-            className="form-control mb-3"
+          <TextField
+            label="Username"
             name="username"
-            placeholder="Username"
             value={form.username}
             onChange={handleChange}
+            fullWidth
           />
 
-          <input
-            className="form-control mb-3"
-            type="password"
+          <TextField
+            label="Password"
             name="password"
-            placeholder="Password"
+            type="password"
             value={form.password}
             onChange={handleChange}
+            fullWidth
           />
 
-          <input
-            className="form-control mb-3"
-            type="password"
+          <TextField
+            label="Confirm Password"
             name="confirmPassword"
-            placeholder="Confirm Password"
+            type="password"
             value={form.confirmPassword}
             onChange={handleChange}
+            fullWidth
           />
 
-          <input
-            className="form-control mb-3"
-            type="date"
+          <TextField
+            label="Date of Birth"
             name="dob"
+            type="date"
             value={form.dob}
             onChange={handleChange}
+            slotProps={{
+              inputLabel: {
+                shrink: true,
+              },
+            }}
+            fullWidth
           />
 
-          <div className="mb-3">
-            <label className="me-3">
-              <input
-                type="radio"
-                name="gender"
+          <Box>
+            <FormLabel>Gender</FormLabel>
+
+            <RadioGroup
+              row
+              name="gender"
+              value={form.gender}
+              onChange={handleChange}
+            >
+              <FormControlLabel
                 value="Male"
-                checked={form.gender === "Male"}
-                onChange={handleChange}
-              />{" "}
-              Male
-            </label>
+                control={<Radio />}
+                label="Male"
+              />
 
-            <label className="me-3">
-              <input
-                type="radio"
-                name="gender"
+              <FormControlLabel
                 value="Female"
-                checked={form.gender === "Female"}
-                onChange={handleChange}
-              />{" "}
-              Female
-            </label>
+                control={<Radio />}
+                label="Female"
+              />
 
-            <label>
-              <input
-                type="radio"
-                name="gender"
+              <FormControlLabel
                 value="Other"
-                checked={form.gender === "Other"}
-                onChange={handleChange}
-              />{" "}
-              Other
-            </label>
-          </div>
+                control={<Radio />}
+                label="Other"
+              />
+            </RadioGroup>
+          </Box>
 
-          <textarea
-            className="form-control mb-3"
-            rows="5"
+          <TextField
+            label="Address"
             name="address"
-            placeholder="Address"
+            multiline
+            rows={4}
             value={form.address}
             onChange={handleChange}
-          ></textarea>
+            fullWidth
+          />
 
-          <div className="form-check mb-3">
-            <input
-              id="terms"
-              type="checkbox"
-              name="terms"
-              className="form-check-input"
-              checked={form.terms}
-              onChange={handleChange}
-            />
+          <FormControlLabel
+            control={
+              <Checkbox
+                name="terms"
+                checked={form.terms}
+                onChange={handleChange}
+              />
+            }
+            label="I agree to the Terms & Conditions"
+          />
 
-            <label
-              htmlFor="terms"
-              className="form-check-label"
-            >
-              I agree to the Terms and Conditions
-            </label>
-          </div>
-
-          <button
+          <Button
+            variant="contained"
+            color="success"
             type="submit"
-            className="btn btn-success w-100"
+            size="large"
           >
             Register
-          </button>
-        </form>
+          </Button>
 
-        <p className="mt-3">
-          Already have an account?{" "}
-          <Link to="/login">
-            Login Here
-          </Link>
-        </p>
-      </section>
-    </div>
+          <Typography align="center">
+            Already have an account?{" "}
+            <Link to="/login">
+              Login Here
+            </Link>
+          </Typography>
+        </Box>
+      </Paper>
+    </Container>
   );
 }
 

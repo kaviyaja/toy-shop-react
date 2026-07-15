@@ -7,6 +7,7 @@ import Productspage from "../Pages/Productspage";
 import Contactpage from "../Pages/Contactpage";
 import Loginpage from "../Pages/Loginpage";
 import Registerpage from "../Pages/Registerpage";
+import Signup from "../Pages/signup";
 
 function Approutes() {
   return (
@@ -23,6 +24,8 @@ function Approutes() {
       <Route path="/login" element={<Loginpage />} />
 
       <Route path="/register" element={<Registerpage />} />
+
+      <Route path="/signup" element={<Signup />} />
 
     </Routes>
   );
