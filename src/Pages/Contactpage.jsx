@@ -2,146 +2,115 @@ import React from "react";
 
 function Contactpage() {
   return (
-    <div className="container my-5">
+    <div className="contact-page">
 
-      {/* Banner */}
+      {/* Hero Section */}
 
-      <section className="banner text-center">
+      <section className="contact-hero">
 
-        <h2>Contact Us</h2>
-
-        <p>We're always happy to hear from you.</p>
-
-        <img
-          src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=900"
-          alt="Contact Banner"
-          width="900"
-          height="350"
-          className="img-fluid"
-        />
-
-      </section>
-
-      <hr />
-
-      {/* Contact Form */}
-
-      <section className="contact-section">
-
-        <h2>Send Us a Message</h2>
-
-        <form>
-
-          <div className="mb-3">
-
-            <label className="form-label">
-              Name
-            </label>
-
-            <input
-              type="text"
-              className="form-control"
-            />
-
-          </div>
-
-          <div className="mb-3">
-
-            <label className="form-label">
-              Email
-            </label>
-
-            <input
-              type="email"
-              className="form-control"
-            />
-
-          </div>
-
-          <div className="mb-3">
-
-            <label className="form-label">
-              Phone Number
-            </label>
-
-            <input
-              type="tel"
-              className="form-control"
-            />
-
-          </div>
-
-          <div className="mb-3">
-
-            <label className="form-label">
-              Subject
-            </label>
-
-            <input
-              type="text"
-              className="form-control"
-            />
-
-          </div>
-
-          <div className="mb-3">
-
-            <label className="form-label">
-              Message
-            </label>
-
-            <textarea
-              rows="6"
-              className="form-control"
-            ></textarea>
-
-          </div>
-
-          <button className="btn btn-primary">
-            Send Message
-          </button>
-
-        </form>
-
-      </section>
-
-      <hr />
-
-      {/* Store Information */}
-
-      <section className="store-info">
-
-        <h2>Store Information</h2>
-
-        <p><strong>📍 Address:</strong> Madurai, Tamil Nadu</p>
-
-        <p><strong>📞 Phone:</strong> +91 9876543210</p>
-
-        <p><strong>📧 Email:</strong> support@kaviyatoyshop.com</p>
+        <h1>Contact Us</h1>
 
         <p>
-          <strong>🕘 Working Hours:</strong>
-          {" "}
-          Monday - Saturday (9:00 AM - 7:00 PM)
+          We'd love to hear from you. Reach out to us anytime!
         </p>
 
       </section>
 
-      <hr />
+      {/* Contact Cards */}
 
-      {/* Social Media */}
+      <section className="contact-cards">
 
-      <section className="follow">
+        <div className="contact-card">
 
-        <h2>Follow Us</h2>
+          <div className="contact-icon">📍</div>
 
-        <p>📘 Facebook</p>
+          <h3>Address</h3>
 
-        <p>📷 Instagram</p>
+          <p>
+            Kaviya's Toy Shop<br />
+            Madurai, Tamil Nadu<br />
+            India
+          </p>
 
-        <p>▶ YouTube</p>
+        </div>
 
-        <p>🐦 Twitter</p>
+        <div className="contact-card">
+
+          <div className="contact-icon">📞</div>
+
+          <h3>Phone</h3>
+
+          <p>+91 9876543210</p>
+
+        </div>
+
+        <div className="contact-card">
+
+          <div className="contact-icon">📧</div>
+
+          <h3>Email</h3>
+
+          <p>kaviya@toyshop.com</p>
+
+        </div>
+
+      </section>
+
+      {/* Contact Form */}
+
+      <section className="contact-container">
+
+        <div className="contact-form">
+
+          <h2>Send us a Message</h2>
+
+          <input
+            type="text"
+            placeholder="Your Name"
+          />
+
+          <input
+            type="email"
+            placeholder="Your Email"
+          />
+
+          <input
+            type="text"
+            placeholder="Subject"
+          />
+
+          <textarea
+            rows="6"
+            placeholder="Write your message..."
+          ></textarea>
+
+          <button>
+            Send Message
+          </button>
+
+        </div>
+
+        <div className="contact-image">
+
+          <img
+            src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=700"
+            alt="Customer Support"
+          />
+
+        </div>
+
+      </section>
+
+      {/* Map */}
+
+      <section className="map-section">
+
+        <h2>Find Us</h2>
+
+        <iframe
+          title="map"
+          src="https://maps.google.com/maps?q=Madurai&t=&z=13&ie=UTF8&iwloc=&output=embed"
+        ></iframe>
 
       </section>
 

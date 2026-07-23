@@ -1,7 +1,10 @@
 import React from "react";
 import ProductCard from "../Components/ProductCard";
+import { useNavigate } from "react-router-dom";
 
 function Productspage() {
+  const navigate = useNavigate();
+
   const products = [
     {
       id: 1,
@@ -29,7 +32,7 @@ function Productspage() {
     },
     {
       id: 4,
-      name: "RC Car",
+      name: "Remote Control Car",
       price: "₹2200",
       rating: "⭐⭐⭐⭐☆",
       image:
@@ -67,73 +70,62 @@ function Productspage() {
       image:
         "https://m.media-amazon.com/images/I/81lSlrKGJjL.jpg",
     },
-    {
-      id: 9,
-      name: "Dinosaur Toy",
-      price: "₹950",
-      rating: "⭐⭐⭐⭐☆",
-      image:
-        "https://www.crossword.in/cdn/shop/products/crosswordonline-toys-games-default-title-mirada-30cm-embroidered-dinosaur-soft-toy-green-mp0587a-40406906372313.jpg?v=1776687916",
-    },
-    {
-      id: 10,
-      name: "Toy Helicopter",
-      price: "₹1999",
-      rating: "⭐⭐⭐⭐⭐",
-      image:
-        "https://sellet.in/wp-content/uploads/2021/12/IMG20211210222331.jpg",
-    },
-    {
-      id: 11,
-      name: "Wooden Toy",
-      price: "₹2500",
-      rating: "⭐⭐⭐⭐⭐",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_vgtjthfMvfJuQ2cRcU8i2t0UWLT2AYzglc7J9vq3tDKX-dzDEURfojfY&s=10",
-    },
-    {
-      id: 12,
-      name: "Puzzle Toy",
-      price: "₹350",
-      rating: "⭐⭐⭐⭐☆",
-      image:
-        "https://www.mystore.in/s/62ea2c599d1398fa16dbae0a/66d95c2af77e24003ac75d84/81v8-kar-sqv-l-sl1500-3-.jpg",
-    },
   ];
 
+  // Add product to cart
+  const handleAddToCart = (product) => {
+    const existingCart =
+      JSON.parse(localStorage.getItem("cart")) || [];
+
+    existingCart.push(product);
+
+    localStorage.setItem(
+      "cart",
+      JSON.stringify(existingCart)
+    );
+
+    alert(`${product.name} added to cart!`);
+
+    navigate("/cart");
+  };
+
   return (
-    <div className="container my-5">
-      <section className="product-banner text-center mb-5">
-        <h1>Our Products</h1>
+    <div className="products-page">
+      <div className="products-banner">
+        <h1>Our Toy Collection</h1>
 
-        <p>Discover fun, educational and premium quality toys for kids.</p>
+        <p>
+          Explore premium quality toys for children of every age.
+        </p>
+      </div>
 
-        <div className="d-flex justify-content-center mt-3">
-          <input
-            type="text"
-            className="form-control w-50"
-            placeholder="Search your favourite toy..."
+      <div className="products-search">
+        <input
+          type="text"
+          placeholder="Search your favourite toy..."
+        />
+
+        <select>
+          <option>All Categories</option>
+          <option>Soft Toys</option>
+          <option>Wooden Toys</option>
+          <option>Educational</option>
+          <option>Baby Toys</option>
+        </select>
+      </div>
+
+      <div className="products-grid">
+        {products.map((product) => (
+          <ProductCard
+            key={product.id}
+            image={product.image}
+            name={product.name}
+            price={product.price}
+            rating={product.rating}
+            onAddToCart={() => handleAddToCart(product)}
           />
-
-          <button className="btn btn-primary ms-2">
-            Search
-          </button>
-        </div>
-      </section>
-
-      <section className="product-grid">
-        <div className="row">
-          {products.map((product) => (
-            <ProductCard
-              key={product.id}
-              image={product.image}
-              name={product.name}
-              price={product.price}
-              rating={product.rating}
-            />
-          ))}
-        </div>
-      </section>
+        ))}
+      </div>
     </div>
   );
 }

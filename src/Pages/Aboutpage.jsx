@@ -2,162 +2,139 @@ import React from "react";
 
 function Aboutpage() {
   return (
-    <div>
-      {/* Banner */}
+    <div className="about-page">
 
-      <section className="banner">
-        <h2>About Us</h2>
+      {/* Hero */}
 
-        <p>Bringing Joy, Learning and Creativity to Every Child.</p>
+      <section className="about-hero">
 
-        <img
-          src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=900"
-          width="900"
-          height="350"
-          alt="About Banner"
-        />
+        <div className="about-content">
+
+          <h1>About Kaviya's Toy Shop</h1>
+
+          <p>
+            Bringing smiles to children with safe, educational and premium
+            quality toys since 2026.
+          </p>
+
+        </div>
+
       </section>
-
-      <hr />
 
       {/* Our Story */}
 
-      <section className="about">
-        <h2>Our Story</h2>
+      <section className="about-section">
 
-        <img
-          src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=350"
-          alt="Our Story"
-        />
+        <div className="about-image">
 
-        <p>
-          Welcome to <b>Kaviya's Toy Shop</b>.
-          <br />
-          <br />
-          Our journey started with one simple dream — to make every child's
-          childhood more joyful through safe, educational and entertaining
-          toys.
-          <br />
-          <br />
-          We carefully select toys that inspire creativity, learning and
-          happiness for children of every age.
-        </p>
+          <img
+            src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=700"
+            alt="Toy Shop"
+          />
+
+        </div>
+
+        <div className="about-text">
+
+          <h2>Our Story</h2>
+
+          <p>
+            Kaviya's Toy Shop was started with one simple goal:
+            to provide children with toys that are fun,
+            educational and completely safe.
+
+            We carefully select every product to ensure
+            excellent quality and long-lasting enjoyment.
+          </p>
+
+        </div>
+
       </section>
-
-      <hr />
 
       {/* Mission */}
 
       <section className="mission">
-        <h2>Our Mission</h2>
 
-        <ul>
-          <li>Provide Safe Toys</li>
-          <li>Affordable Prices</li>
-          <li>Educational Learning Toys</li>
-          <li>Excellent Customer Service</li>
-        </ul>
+        <div className="mission-card">
+
+          <h2>🎯 Our Mission</h2>
+
+          <p>
+            To inspire creativity and learning through high-quality toys.
+          </p>
+
+        </div>
+
+        <div className="mission-card">
+
+          <h2>🌍 Our Vision</h2>
+
+          <p>
+            To become India's most trusted online toy destination.
+          </p>
+
+        </div>
+
       </section>
-
-      <hr />
-
-      {/* Vision */}
-
-      <section className="vision">
-        <h2>Our Vision</h2>
-
-        <p>
-          To become one of India's most trusted toy stores by offering premium
-          quality toys that create unforgettable childhood memories.
-        </p>
-      </section>
-
-      <hr />
 
       {/* Why Choose Us */}
 
-      <section className="choose">
+      <section className="why-about">
+
         <h2>Why Choose Us?</h2>
 
-        <table>
-          <tbody>
-            <tr>
-              <td>🧸 Premium Toys</td>
-              <td>🚚 Fast Delivery</td>
-            </tr>
+        <div className="why-grid">
 
-            <tr>
-              <td>💰 Best Prices</td>
-              <td>⭐ Trusted Quality</td>
-            </tr>
+          <div className="why-card">
+            <h3>✔ Premium Quality</h3>
+            <p>Only the best products for your children.</p>
+          </div>
 
-            <tr>
-              <td>🎁 Gift Packing</td>
-              <td>😊 Happy Customers</td>
-            </tr>
-          </tbody>
-        </table>
+          <div className="why-card">
+            <h3>🚚 Fast Delivery</h3>
+            <p>Quick delivery across India.</p>
+          </div>
+
+          <div className="why-card">
+            <h3>💳 Secure Payment</h3>
+            <p>Safe online payment methods.</p>
+          </div>
+
+          <div className="why-card">
+            <h3>📞 Customer Support</h3>
+            <p>Always ready to help you.</p>
+          </div>
+
+        </div>
+
       </section>
-
-      <hr />
 
       {/* Statistics */}
 
       <section className="stats">
-        <h2>Our Achievements</h2>
 
-        <table>
-          <tbody>
-            <tr>
-              <td>
-                <h1>1000+</h1>
-                Happy Customers
-              </td>
+        <div className="stat-box">
+          <h2>5000+</h2>
+          <p>Happy Customers</p>
+        </div>
 
-              <td>
-                <h1>250+</h1>
-                Toy Collections
-              </td>
+        <div className="stat-box">
+          <h2>300+</h2>
+          <p>Toy Collections</p>
+        </div>
 
-              <td>
-                <h1>5+</h1>
-                Years Experience
-              </td>
+        <div className="stat-box">
+          <h2>25+</h2>
+          <p>Brands</p>
+        </div>
 
-              <td>
-                <h1>4.9★</h1>
-                Customer Rating
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div className="stat-box">
+          <h2>100%</h2>
+          <p>Customer Satisfaction</p>
+        </div>
+
       </section>
 
-      <hr />
-
-      {/* Customer Reviews */}
-
-      <section>
-        <h2>Customer Reviews</h2>
-
-        <p>
-          ⭐⭐⭐⭐⭐
-          <br />
-          <br />
-          "My kids absolutely love the educational toys!"
-          <br />- Kaviya Jayakumar
-        </p>
-
-        <br />
-
-        <p>
-          ⭐⭐⭐⭐⭐
-          <br />
-          <br />
-          "Excellent quality and very fast delivery."
-          <br />- Rahul Rathinam
-        </p>
-      </section>
     </div>
   );
 }

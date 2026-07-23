@@ -2,183 +2,87 @@ import React from "react";
 
 function Homepage() {
   return (
-    <div className="container mt-4">
+    <>
 
       {/* Hero Section */}
-      <section className="text-center">
 
-        <h2>Welcome to Kaviya's Toy Shop</h2>
+      <section className="hero">
 
-        <img
-          src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=700"
-          alt="Toy Shop Banner"
-          width="700"
-          height="300"
-          className="img-fluid"
-        />
+        <div className="hero-text">
 
-        <p className="mt-3">
-          Discover fun, educational and safe toys for children of all ages.
-        </p>
+          <h1>Welcome to Kaviya's Toy Shop</h1>
 
-        <button className="btn btn-primary">
-          Shop Now
-        </button>
+          <p>
+            Discover safe, educational and premium quality toys for children of
+            every age. Bring happiness home with our amazing collection.
+          </p>
+
+          <button className="shop-btn">
+            Shop Now
+          </button>
+
+        </div>
+
+        <div className="hero-image">
+
+          <img
+            src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=900"
+            alt="Toy Shop"
+          />
+
+        </div>
 
       </section>
 
-      <hr />
-
       {/* Categories */}
-      <section>
 
-        <h2 className="text-center mb-4">
-          Shop by Categories
-        </h2>
+      <section className="categories">
 
-        <div className="row text-center">
+        <h2>Shop by Categories</h2>
 
-          <div className="col-md-3">
+        <div className="category-grid">
+
+          <div className="category-card">
 
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgJAdVMsxWj221zGsVzyOERdDcfRa4EeWRXMsKWez_qA&s=10"
-              width="150"
-              height="150"
-              alt="Teddy Bears"
-            />
-
-            <p className="mt-2">Teddy Bears</p>
-
-          </div>
-
-          <div className="col-md-3">
-
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxmfRh1WakCCNDfhjohiMMH9D-quXFNH1UOwGm_gpj-G44zVM1I609vsRQ&s=10"
-              width="150"
-              height="150"
-              alt="Wooden Toys"
-            />
-
-            <p className="mt-2">Wooden Toys</p>
-
-          </div>
-
-          <div className="col-md-3">
-
-            <img
-              src="https://www.mystore.in/s/62ea2c599d1398fa16dbae0a/66d95c2af77e24003ac75d84/81v8-kar-sqv-l-sl1500-3-.jpg"
-              width="150"
-              height="150"
-              alt="Puzzle Toys"
-            />
-
-            <p className="mt-2">Puzzle Toys</p>
-
-          </div>
-
-          <div className="col-md-3">
-
-            <img
-              src="https://storio.in/cdn/shop/files/61tCyalILiL.jpg?v=1712376510"
-              width="150"
-              height="150"
-              alt="Baby Toys"
-            />
-
-            <p className="mt-2">Baby Toys</p>
-
-          </div>
-
-        </div>
-
-      </section>
-
-      <hr />
-
-      {/* Featured Products */}
-
-      <section>
-
-        <h2 className="text-center mb-4">
-          Featured Products
-        </h2>
-
-        <div className="row text-center">
-
-          <div className="col-md-3">
-
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsXgRLxKTyvZITWWiSQlawIUb5QE26BPIxBrw9fMQ9fSE29qJVjZiTNRQ&s=10"
-              width="180"
-              height="180"
               alt="Teddy Bear"
             />
 
-            <h5 className="mt-2">Teddy Bear</h5>
-
-            <p>Price : ₹1000</p>
-
-            <button className="btn btn-success">
-              Add to Cart
-            </button>
+            <h3>Teddy Bears</h3>
 
           </div>
 
-          <div className="col-md-3">
+          <div className="category-card">
 
             <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_vgtjthfMvfJuQ2cRcU8i2t0UWLT2AYzglc7J9vq3tDKX-dzDEURfojfY&s=10"
-              width="180"
-              height="180"
-              alt="Wooden Crane"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxmfRh1WakCCNDfhjohiMMH9D-quXFNH1UOwGm_gpj-G44zVM1I609vsRQ&s=10"
+              alt="Wooden Toys"
             />
 
-            <h5 className="mt-2">Wooden Crane</h5>
-
-            <p>Price : ₹3050</p>
-
-            <button className="btn btn-success">
-              Add to Cart
-            </button>
+            <h3>Wooden Toys</h3>
 
           </div>
 
-          <div className="col-md-3">
+          <div className="category-card">
 
             <img
-              src="https://static.vecteezy.com/system/resources/thumbnails/049/501/402/small/colorful-alphabet-toy-blocks-forming-a-cube-on-white-background-photo.jpg"
-              width="180"
-              height="180"
-              alt="Educational Cube"
+              src="https://www.mystore.in/s/62ea2c599d1398fa16dbae0a/66d95c2af77e24003ac75d84/81v8-kar-sqv-l-sl1500-3-.jpg"
+              alt="Puzzle Toys"
             />
 
-            <h5 className="mt-2">Educational Cube</h5>
-
-            <p>Price : ₹290</p>
-
-            <button className="btn btn-success">
-              Add to Cart
-            </button>
+            <h3>Puzzle Toys</h3>
 
           </div>
 
-          <div className="col-md-3">
+          <div className="category-card">
 
             <img
-              src="https://5.imimg.com/data5/SELLER/Default/2025/1/484828153/RC/NT/ZF/131989713/electric-baby-swing-cradle-with-remote-control-500x500.jpg"
-              width="180"
-              height="180"
-              alt="Baby Swing"
+              src="https://storio.in/cdn/shop/files/61tCyalILiL.jpg?v=1712376510"
+              alt="Baby Toys"
             />
 
-            <h5 className="mt-2">Baby Swing</h5>
-
-            <p>Price : ₹10099</p>
-
-            <button className="btn btn-success">
-              Add to Cart
-            </button>
+            <h3>Baby Toys</h3>
 
           </div>
 
@@ -186,67 +90,135 @@ function Homepage() {
 
       </section>
 
-      <hr />
+      {/* Featured Products */}
 
-      {/* Best Sellers */}
+      <section className="featured-products">
 
-      <section>
+        <h2>Featured Products</h2>
 
-        <h2>Best Sellers</h2>
+        <div className="product-row">
 
-        <ul>
-          <li>Teddy Bear</li>
-          <li>Wooden Train</li>
-          <li>Building Blocks</li>
-          <li>Baby Swing</li>
-          <li>Puzzle Game</li>
-        </ul>
+          <div className="product-box">
+
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsXgRLxKTyvZITWWiSQlawIUb5QE26BPIxBrw9fMQ9fSE29qJVjZiTNRQ&s=10"
+              alt="Teddy Bear"
+            />
+
+            <h3>Teddy Bear</h3>
+
+            <p>₹1000</p>
+
+            <button>Add to Cart</button>
+
+          </div>
+
+          <div className="product-box">
+
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_vgtjthfMvfJuQ2cRcU8i2t0UWLT2AYzglc7J9vq3tDKX-dzDEURfojfY&s=10"
+              alt="Wooden Toy"
+            />
+
+            <h3>Wooden Toy</h3>
+
+            <p>₹2500</p>
+
+            <button>Add to Cart</button>
+
+          </div>
+
+          <div className="product-box">
+
+            <img
+              src="https://www.mystore.in/s/62ea2c599d1398fa16dbae0a/66d95c2af77e24003ac75d84/81v8-kar-sqv-l-sl1500-3-.jpg"
+              alt="Puzzle Toy"
+            />
+
+            <h3>Puzzle Toy</h3>
+
+            <p>₹350</p>
+
+            <button>Add to Cart</button>
+
+          </div>
+
+          <div className="product-box">
+
+            <img
+              src="https://5.imimg.com/data5/SELLER/Default/2025/1/484828153/RC/NT/ZF/131989713/electric-baby-swing-cradle-with-remote-control-500x500.jpg"
+              alt="Baby Swing"
+            />
+
+            <h3>Baby Swing</h3>
+
+            <p>₹10099</p>
+
+            <button>Add to Cart</button>
+
+          </div>
+
+        </div>
 
       </section>
-
-      <hr />
 
       {/* Why Choose Us */}
 
-      <section>
+      <section className="why-us">
 
         <h2>Why Choose Us?</h2>
 
-        <ul>
-          <li>✔ Safe and Non-Toxic Toys</li>
-          <li>✔ Premium Quality Products</li>
-          <li>✔ Affordable Prices</li>
-          <li>✔ Fast Delivery</li>
-          <li>✔ Excellent Customer Support</li>
-        </ul>
+        <div className="why-grid">
+
+          <div>✔ Premium Quality Toys</div>
+
+          <div>✔ Safe For Children</div>
+
+          <div>✔ Affordable Prices</div>
+
+          <div>✔ Fast Delivery</div>
+
+        </div>
 
       </section>
-
-      <hr />
 
       {/* Reviews */}
 
-      <section>
+      <section className="reviews">
 
         <h2>Customer Reviews</h2>
 
-        <p>⭐⭐⭐⭐⭐</p>
+        <div className="review-container">
 
-        <p>"Amazing quality toys. My daughter loves them!"</p>
+          <div className="review-card">
 
-        <p><strong>- Kaviya Jayakumar</strong></p>
+            <h4>Kaviya Jayakumar</h4>
 
-        <br />
+            <p>⭐⭐⭐⭐⭐</p>
 
-        <p>⭐⭐⭐⭐⭐</p>
+            <p>
+              Amazing quality toys. My daughter loves them.
+            </p>
 
-        <p>"Very good service and affordable prices."</p>
+          </div>
 
-        <p><strong>- Rahul Rathinam</strong></p>
+          <div className="review-card">
+
+            <h4>Rahul Rathinam</h4>
+
+            <p>⭐⭐⭐⭐⭐</p>
+
+            <p>
+              Excellent service and affordable prices.
+            </p>
+
+          </div>
+
+        </div>
 
       </section>
 
-    </div>
+    </>
   );
 }
 

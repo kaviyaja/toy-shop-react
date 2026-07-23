@@ -1,3 +1,4 @@
+import API from "../api/userApi";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
@@ -7,6 +8,7 @@ import {
   TextField,
   Button,
   Box,
+  FormControl,      
   RadioGroup,
   Radio,
   FormControlLabel,
@@ -38,7 +40,7 @@ function Registerpage() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -95,104 +97,90 @@ function Registerpage() {
     }
 
     if (!form.terms) {
-      alert("Please accept the Terms and Conditions.");
+      alert("Please accept the Terms & Conditions.");
       return;
     }
 
-    // Store in localStorage
-    localStorage.setItem(
-      "registerData",
-      JSON.stringify(form)
-    );
+    try {
+      const response = await API.post("/register", {
+        username: form.username,
+        email: form.email,
+        mobile: form.phone,
+        password: form.password,
+        role: "user",
+      });
 
-    alert("Registration Successful!");
+      alert(response.data.message);
 
-    console.log(form);
-
-    // Clear Form
-    setForm({
-      fname: "",
-      lname: "",
-      email: "",
-      phone: "",
-      username: "",
-      password: "",
-      confirmPassword: "",
-      dob: "",
-      gender: "",
-      address: "",
-      terms: false,
-    });
+      setForm({
+        fname: "",
+        lname: "",
+        email: "",
+        phone: "",
+        username: "",
+        password: "",
+        confirmPassword: "",
+        dob: "",
+        gender: "",
+        address: "",
+        terms: false,
+      });
+    } catch (error) {
+      if (error.response) {
+        alert(error.response.data.message);
+      } else {
+        alert("Server Error");
+      }
+    }
   };
 
   return (
-    <Container maxWidth="sm">
-      <Paper
-        elevation={5}
-        sx={{
-          mt: 5,
-          p: 4,
-          borderRadius: 3,
-        }}
-      >
+    <Container maxWidth="sm" style={{ marginTop: "50px" }}>
+      <Paper elevation={3} style={{ padding: "20px" }}>
         <Typography variant="h4" align="center" gutterBottom>
           Register
         </Typography>
-
-        <Typography align="center" sx={{ mb: 3 }}>
-          Create Your Account
-        </Typography>
-
-        <Box
-          component="form"
-          onSubmit={handleSubmit}
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            gap: 2,
-          }}
-        >
+        <form onSubmit={handleSubmit}>
           <TextField
             label="First Name"
             name="fname"
             value={form.fname}
             onChange={handleChange}
             fullWidth
+            margin="normal"
           />
-
           <TextField
             label="Last Name"
             name="lname"
             value={form.lname}
             onChange={handleChange}
             fullWidth
+            margin="normal"
           />
-
           <TextField
             label="Email"
             name="email"
-            type="email"
             value={form.email}
             onChange={handleChange}
             fullWidth
+            margin="normal"
           />
-
           <TextField
-            label="Phone Number"
+            label="Phone"
             name="phone"
             value={form.phone}
             onChange={handleChange}
             fullWidth
+            margin="normal"
           />
-
           <TextField
             label="Username"
             name="username"
             value={form.username}
             onChange={handleChange}
             fullWidth
+            margin="normal"
           />
-
           <TextField
             label="Password"
             name="password"
@@ -200,8 +188,8 @@ function Registerpage() {
             value={form.password}
             onChange={handleChange}
             fullWidth
+            margin="normal"
           />
-
           <TextField
             label="Confirm Password"
             name="confirmPassword"
@@ -209,91 +197,72 @@ function Registerpage() {
             value={form.confirmPassword}
             onChange={handleChange}
             fullWidth
+            margin="normal"
           />
-
-          <TextField
-            label="Date of Birth"
-            name="dob"
-            type="date"
-            value={form.dob}
-            onChange={handleChange}
-            slotProps={{
-              inputLabel: {
-                shrink: true,
-              },
-            }}
-            fullWidth
+       <TextField
+        label="Date of Birth"
+        name="dob"
+        type="date"
+        value={form.dob}
+        onChange={handleChange}
+        fullWidth
+        margin="normal"
+        InputLabelProps={{
+        shrink: true,
+          }}
           />
-
-          <Box>
-            <FormLabel>Gender</FormLabel>
-
+          <FormControl component="fieldset">
+            <FormLabel component="legend">Gender</FormLabel>
             <RadioGroup
-              row
               name="gender"
               value={form.gender}
               onChange={handleChange}
             >
               <FormControlLabel
-                value="Male"
+                value="male"
                 control={<Radio />}
                 label="Male"
               />
-
               <FormControlLabel
-                value="Female"
+                value="female"
                 control={<Radio />}
                 label="Female"
               />
-
-              <FormControlLabel
-                value="Other"
-                control={<Radio />}
-                label="Other"
-              />
             </RadioGroup>
-          </Box>
-
+          </FormControl>
           <TextField
             label="Address"
             name="address"
-            multiline
-            rows={4}
             value={form.address}
             onChange={handleChange}
             fullWidth
+            multiline
+            rows={4}
+            margin="normal"
           />
-
-          <FormControlLabel
-            control={
-              <Checkbox
-                name="terms"
-                checked={form.terms}
-                onChange={handleChange}
-              />
-            }
-            label="I agree to the Terms & Conditions"
-          />
-
+          <Box display="flex" alignItems="center" mt={2}>
+            <Checkbox
+              name="terms"
+              checked={form.terms}
+              onChange={handleChange}
+              color="primary"
+            />
+            <Typography variant="body2" ml={1}>
+              I accept the Terms & Conditions
+            </Typography>
+          </Box>
           <Button
-            variant="contained"
-            color="success"
             type="submit"
-            size="large"
+            variant="contained"
+            color="primary"
+            fullWidth
+            style={{ marginTop: "20px" }}
           >
             Register
           </Button>
-
-          <Typography align="center">
-            Already have an account?{" "}
-            <Link to="/login">
-              Login Here
-            </Link>
-          </Typography>
-        </Box>
+        </form>
       </Paper>
     </Container>
   );
 }
-
 export default Registerpage;

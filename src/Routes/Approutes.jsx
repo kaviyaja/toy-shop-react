@@ -8,6 +8,13 @@ import Contactpage from "../Pages/Contactpage";
 import Loginpage from "../Pages/Loginpage";
 import Registerpage from "../Pages/Registerpage";
 import Signup from "../Pages/signup";
+import Dashboard from "../Pages/Admin/Dashboard";
+import Products from "../Pages/Admin/Products";
+import AddProduct from "../Pages/Admin/AddProduct";
+import Orders from "../Pages/Admin/Orders";
+import Users from "../Pages/Admin/Users";
+import Settings from "../Pages/Admin/Settings";
+import CartPage from "../Pages/CartPage";
 
 function Approutes() {
   return (
@@ -26,6 +33,20 @@ function Approutes() {
       <Route path="/register" element={<Registerpage />} />
 
       <Route path="/signup" element={<Signup />} />
+
+      <Route path="/admin" element={<Dashboard />} />
+
+      <Route path="/admin/products" element={<Products />} />
+
+      <Route path="/admin/add-product" element={<AddProduct />} />
+
+      <Route path="/admin/orders" element={<Orders />} />
+
+      <Route path="/admin/users" element={<Users />} />
+
+      <Route path="/admin/settings" element={<Settings />} />
+
+      <Route path="/cart" element={<CartPage />} />
 
     </Routes>
   );
